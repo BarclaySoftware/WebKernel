@@ -1,0 +1,259 @@
+<!-- Copyright (c) 2024 The Caesium Project Authors. All rights reserved. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Change the URL to the location of your web desktop's icon. -->
+    <link rel="icon" type="image/png" href="https://delivercdn.pages.dev/WebKernel/images/appicons/WebKernel-Icon.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://delivercdn.pages.dev/WebKernel/images/appicons/WebKernel-Icon.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://delivercdn.pages.dev/WebKernel/images/appicons/WebKernel-Icon.png" sizes="48x48">
+    <link rel="icon" type="image/png" href="https://delivercdn.pages.dev/WebKernel/images/appicons/WebKernel-Icon.png" sizes="76x76">
+    <link rel="icon" type="image/png" href="https://delivercdn.pages.dev/WebKernel/images/appicons/WebKernel-Icon.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="https://delivercdn.pages.dev/WebKernel/images/appicons/WebKernel-Icon.png" sizes="120x120">
+    <link rel="icon" type="image/png" href="https://delivercdn.pages.dev/WebKernel/images/appicons/WebKernel-Icon.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://delivercdn.pages.dev/WebKernel/images/appicons/WebKernel-Icon.png" sizes="144x144">
+    <link rel="icon" type="image/png" href="https://delivercdn.pages.dev/WebKernel/images/appicons/WebKernel-Icon.png" sizes="180x180">
+    <link rel="icon" type="image/png" href="https://delivercdn.pages.dev/WebKernel/images/appicons/WebKernel-Icon.png" sizes="196x196">
+    <link rel="icon" type="image/png" href="https://delivercdn.pages.dev/WebKernel/images/appicons/WebKernel-Icon.png" sizes="228x228">
+    <link rel="icon" type="image/png" href="https://delivercdn.pages.dev/WebKernel/images/appicons/WebKernel-Icon.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://delivercdn.pages.dev/WebKernel/images/appicons/WebKernel-Icon.png" sizes="300x300">
+    <link rel="icon" type="image/png" href="https://delivercdn.pages.dev/WebKernel/images/appicons/WebKernel-Icon.png" sizes="384x384">
+    <link rel="icon" type="image/png" href="https://delivercdn.pages.dev/WebKernel/images/appicons/WebKernel-Icon.png" sizes="512x512">
+    <link rel="icon" type="image/png" href="https://delivercdn.pages.dev/WebKernel/images/appicons/WebKernel-Icon.png" sizes="600x600">
+
+    <!-- Where your web desktop's design language is located. -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- The name of your web desktop in the browser. -->
+    <title>WebKernel</title>
+</head>
+<body>
+    <!-- Where all of your web desktop's apps are. -->
+    <div class="desktop">
+        <!-- A basic text-based app. -->
+        <div class="window" id="about">
+            <div class="window-header">
+                About WebKernel
+                <span class="close-btn" onclick="closeWindow('about')" title="Close">&times;</span>
+            </div>
+            <div class="window-body-center">
+                <p>Welcome to Aurorasoft WebKernel, the open source web desktop designed to be fast and easy to use. Have a look around and enjoy! If you see a bug or want to request a feature or app, then email our <a href="mailto:ourjupitergroup@gmail.com"> support</a>. You can also view or copy the source code on <a href=""> Github</a>.</p>
+            </div>
+        </div>
+
+        <!-- A sample embedded app. -->
+        <div class="window" id="browser">
+            <div class="window-header">
+                Browser
+                <span class="close-btn" onclick="closeWindow('browser')" title="Close">&times;</span>
+            </div>
+            <div class="window-body iframe-container">
+                <iframe src="https://caesiumapps.pages.dev/browser"></iframe>
+            </div>
+        </div>
+
+        <div class="window" id="calculator">
+            <div class="window-header">
+                Calculator
+                <span class="close-btn" onclick="closeWindow('calculator')" title="Close">&times;</span>
+            </div>
+            <div class="window-body iframe-container">
+                <iframe src="https://caesiumapps.pages.dev/calculator"></iframe>
+            </div>
+        </div>
+
+        <div class="window" id="canvas">
+            <div class="window-header">
+                Canvas
+                <span class="close-btn" onclick="closeWindow('canvas')" title="Close">&times;</span>
+            </div>
+            <div class="window-body iframe-container">
+                <iframe src="https://caesiumapps.pages.dev/canvas"></iframe>
+            </div>
+        </div>
+
+        <div class="window" id="clock">
+            <div class="window-header">
+                Clock
+                <span class="close-btn" onclick="closeWindow('clock')" title="Close">&times;</span>
+            </div>
+            <div class="window-body iframe-container">
+                <iframe src="https://caesiumapps.pages.dev/clock"></iframe>
+            </div>
+        </div>
+
+        <div class="window" id="help">
+            <div class="window-header">
+                Caesium 135 Help
+                <span class="close-btn" onclick="closeWindow('help')" title="Close">&times;</span>
+            </div>
+            <div class="window-body-center">
+                Caesium 135 is still in development. Please come back later for help documentation.
+            </div>
+        </div>
+        
+        <div class="window" id="media">
+            <div class="window-header">
+                Media
+                <span class="close-btn" onclick="closeWindow('media')" title="Close">&times;</span>
+            </div>
+            <div class="window-body iframe-container">
+                <iframe src="https://caesiumapps.pages.dev/media"></iframe>
+            </div>
+        </div>
+
+        <div class="window" id="notes">
+            <div class="window-header">
+                Notes
+                <span class="close-btn" onclick="closeWindow('notes')" title="Close">&times;</span>
+            </div>
+            <div class="window-body iframe-container">
+                <iframe src="https://caesiumapps.pages.dev/notes"></iframe>
+            </div>
+        </div>
+
+        <div class="window" id="search">
+            <div class="window-header">
+                Search
+                <span class="close-btn" onclick="closeWindow('search')" title="Close">&times;</span>
+            </div>
+            <div class="window-body iframe-container">
+                <iframe src="https://caesiumapps.pages.dev/search"></iframe>
+            </div>
+        </div>
+
+        <div class="window" id="terminal">
+            <div class="window-header">
+                Terminal
+                <span class="close-btn" onclick="closeWindow('terminal')" title="Close">&times;</span>
+            </div>
+            <div class="window-body iframe-container">
+                <iframe src="https://caesiumapps.pages.dev/terminal"></iframe>
+            </div>
+        </div>
+        
+        <div class="window" id="welcome">
+            <div class="window-header">
+                Welcome to Caesium 135
+                <span class="close-btn" onclick="closeWindow('welcome')" title="Close">&times;</span>
+            </div>
+            <div class="window-body-center">
+                <p>Caesium 135 is a light-weight version of the Caesium web desktop designed for ease-of-use and productivity. Quickly edit, surf, send, and explore the web with Caesium 135!</p>
+            </div>
+        </div>
+
+        <!-- The app launcher. -->
+        <div class="window" id="launcher">
+            <div class="window-header">
+                App Launcher
+                <span class="close-btn" onclick="closeWindow('launcher')" title="Close">&times;</span>
+            </div>
+            <div class="window-body">
+                <ul class="app-list">
+                    <li class="app-list-item" onclick="openWindow('about')">
+                        <img src="https://delivercdn.pages.dev/WebKernel/images/appicons/about.png" alt="About">
+                        <span>About</span>
+                    </li>
+
+                    <li class="app-list-item" onclick="openWindow('browser')">
+                        <img src="https://delivercdn.pages.dev/WebKernel/images/appicons/browser.png" alt="Browser">
+                        <span>Browser</span>
+                    </li>
+
+                    <li class="app-list-item" onclick="openWindow('calculator')">
+                        <img src="https://delivercdn.pages.dev/WebKernel/images/appicons/calculator.png" alt="Calculator">
+                        <span>Calculator</span>
+                    </li>
+
+                    <li class="app-list-item" onclick="openWindow('canvas')">
+                        <img src="https://delivercdn.pages.dev/WebKernel/images/appicons/canvas.png" alt="Canvas">
+                        <span>Canvas</span>
+                    </li>
+
+                    <li class="app-list-item" onclick="openWindow('clock')">
+                        <img src="https://delivercdn.pages.dev/WebKernel/images/appicons/clock.png" alt="clock">
+                        <span>Clock</span>
+                    </li>
+
+                    <li class="app-list-item" onclick="openWindow('help')">
+                        <img src="https://delivercdn.pages.dev/WebKernel/images/appicons/help.png" alt="Help">
+                        <span>Help</span>
+                    </li>
+
+                    <li class="app-list-item" onclick="openWindow('media')">
+                        <img src="https://delivercdn.pages.dev/WebKernel/images/appicons/media.png" alt="Media">
+                        <span>Media</span>
+                    </li>
+
+                    <li class="app-list-item" onclick="openWindow('notes')">
+                        <img src="https://delivercdn.pages.dev/WebKernel/images/appicons/notes.png" alt="Notes">
+                        <span>Notes</span>
+                    </li>
+
+                    <li class="app-list-item" onclick="openWindow('search')">
+                        <img src="https://delivercdn.pages.dev/WebKernel/images/appicons/search.png" alt="Search">
+                        <span>Search</span>
+                    </li>
+
+                    <li class="app-list-item" onclick="openWindow('terminal')">
+                        <img src="https://delivercdn.pages.dev/WebKernel/images/appicons/terminal.png" alt="Terminal">
+                        <span>Terminal</span>
+                    </li>
+
+                    <li class="app-list-item" onclick="openWindow('welcome')">
+                        <img src="https://delivercdn.pages.dev/WebKernel/images/appicons/welcome.png" alt="Welcome">
+                        <span>Welcome</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- The place where all of your apps are accessible. -->
+    <div class="appbar">
+        <!-- The Launcher should always be the first app in the appbar. -->
+        <div class="app" id="app-launcher" onclick="openWindow('launcher')">
+            <img class="appIcon" src="https://delivercdn.pages.dev/WebKernel/images/appicons/launcher.png" title="WebLauncher">
+        </div>
+
+        <!-- Be sure to change the id to make sure it is unique to each app! -->
+        <div class="app" id="app-search" onclick="openWindow('search')">
+            <img class="appIcon" src="https://delivercdn.pages.dev/WebKernel/images/appicons/search.png" title="Search">
+        </div>
+
+        <div class="app" id="app-browser" onclick="openWindow('browser')">
+            <img class="appIcon" src="https://delivercdn.pages.dev/WebKernel/images/appicons/browser.png" title="Browser">
+        </div>
+
+        <div class="app" id="app-calculator" onclick="openWindow('calculator')">
+            <img class="appIcon" src="https://delivercdn.pages.dev/WebKernel/images/appicons/calculator.png" title="Calculator">
+        </div>
+
+        <div class="app" id="app-canvas" onclick="openWindow('canvas')">
+            <img class="appIcon" src="https://delivercdn.pages.dev/WebKernel/images/appicons/canvas.png" title="Canvas">
+        </div>
+
+        <div class="app" id="app-clock" onclick="openWindow('clock')">
+            <img class="appIcon" src="https://delivercdn.pages.dev/WebKernel/images/appicons/clock.png" title="Clock">
+        </div>
+
+        <div class="app" id="app-media" onclick="openWindow('media')">
+            <img class="appIcon" src="https://delivercdn.pages.dev/WebKernel/images/appicons/media.png" title="Media">
+        </div>
+
+        <div class="app" id="app-notes" onclick="openWindow('notes')">
+            <img class="appIcon" src="https://delivercdn.pages.dev/WebKernel/images/appicons/notes.png" title="Notes">
+        </div>
+
+        <div class="app" id="app-terminal" onclick="openWindow('terminal')">
+            <img class="appIcon" src="https://delivercdn.pages.dev/WebKernel/images/appicons/terminal.png" title="Terminal">
+        </div>
+    </div>
+
+    <!-- Where your web desktop's functions are. -->
+    <script src="script.js"></script>
+</body>
+</html>
