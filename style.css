@@ -44,13 +44,13 @@
 /* Don't change the family names, only the source URL. */
 @font-face {
     font-family: 'system ui';
-    src: url(https://delivercdn.pages.dev/WebKernel/fonts/aurorasoft/sieoge.ttf);
+    src: url(https://delivercdn.pages.dev/WebKernel/fonts/aurorasoft/HarlechUI.ttf);
     font-weight: 400;
 }
 
 @font-face {
     font-family: 'system ui bold';
-    src: url(https://delivercdn.pages.dev/WebKernel/fonts/aurorasoft/evermore-bd.ttf);
+    src: url(https://delivercdn.pages.dev/WebKernel/fonts/aurorasoft/HarlechUI-Bold.ttf);
     font-weight: 700;
 }
 
@@ -173,7 +173,7 @@ a:visited {
     margin-left: 5px;
     margin-right: 5px;
     white-space: nowrap;
-    cursor: url('https://delivercdn.pages.dev/os/cursors/finger.ico'), pointer;
+    cursor: url('https://delivercdn.pages.dev/os/cursors/pointer.ico'), pointer;
 }
 
 /* The full app. */
@@ -202,7 +202,7 @@ a:visited {
     background: var(--system-app-titlebar);
     color: var(--system-app-titlebar-text-color);
     padding: 5px 10px;
-    cursor: url('https://delivercdn.pages.dev/os/cursors/move.ico'), pointer;
+    cursor: url('https://delivercdn.pages.dev/os/cursors/pointer.ico'), pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
