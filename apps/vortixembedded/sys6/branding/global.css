@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'barclaySans';
+    src: url(./fonts/Barclay-Regular.ttf);
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'barclaySans';
+    src: url(./fonts/Barclay-Bold.ttf);
+    font-weight: 700;
+    font-style: normal;
+}
+body {
+    font-family: 'barclaySans', sans-serif;
+    background: url('./images/plaster.png') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    overflow: hidden;
+}
+.desktop {
+    font-family: 'barclaySans', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+.window {
+    font-family: 'barclaySans', sans-serif;
+    width: 500px;
+    height: 400px;
+    position: absolute;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.window.show {
+    opacity: 1;
+}
+.window-header {
+    font-family: 'barclaySans', sans-serif;
+    background: #0078D7;
+    color: white;
+    padding: 10px;
+    cursor: move;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+.window-header button {
+    font-family: 'barclaySans', sans-serif;
+    background: red;
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.window-header button:hover {
+    background: darkred;
+}
+.window-content {
+    flex: 1;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+textarea {
+    font-family: 'barclaySans', sans-serif;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    resize: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 6px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.taskbar {
+    font-family: 'barclaySans', sans-serif;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    overflow-x: auto; /* Allows scrolling if icons overflow */
+    white-space: nowrap; /* Prevents wrapping of icons */
+}
+.taskbar button {
+    font-family: 'barclaySans', sans-serif;
+    background: #0076d700;
+    color: white;
+    border: none;
+    padding: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+.taskbar button:hover {
+    background-color: #005fa3;
+}
+.taskbar button:active {
+    background-color: #003e70;
+}
+.taskbar img {
+    width: 25px; /* Set icon size */
+    height: 25px; /* Set icon size */
+}

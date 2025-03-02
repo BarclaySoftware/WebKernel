@@ -1,0 +1,8 @@
+body {
+    background-color: black;
+    color: white;
+    overflow: hidden;
+}
+.terminal {
+    height: calc(100vh - 10px)
+}

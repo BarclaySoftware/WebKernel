@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Desktop</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <style>
+        @import url(https://aurorasoft.pages.dev/fonts/library.css);
+        body {
+            font-family: 'Vortix Sans', sans-serif;
+            background: url('https://source.unsplash.com/random/1920x1080') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            overflow: hidden;
+        }
+        .desktop {
+            font-family: 'Vortix Sans', sans-serif;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+        .window {
+            font-family: 'Vortix Sans', sans-serif;
+            width: 500px;
+            height: 400px;
+            position: absolute;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .window.show {
+            opacity: 1;
+        }
+        .window-header {
+            font-family: 'Vortix Sans', sans-serif;
+            background: #0078D7;
+            color: white;
+            padding: 10px;
+            cursor: move;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        .window-header button {
+            font-family: 'Vortix Sans', sans-serif;
+            background: red;
+            border: none;
+            color: white;
+            padding: 6px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .window-header button:hover {
+            background: darkred;
+        }
+        .window-content {
+            flex: 1;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        textarea {
+            font-family: 'Vortix Sans', sans-serif;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ddd;
+            resize: none;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 6px;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 6px;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .taskbar {
+            font-family: 'Vortix Sans', sans-serif;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            justify-content: flex-start;
+            box-sizing: border-box;
+            overflow-x: auto; /* Allows scrolling if icons overflow */
+            white-space: nowrap; /* Prevents wrapping of icons */
+        }
+        .taskbar button {
+            font-family: 'Vortix Sans', sans-serif;
+            background: #0078D7;
+            color: white;
+            border: none;
+            padding: 5px;
+            margin-right: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        .taskbar button:hover {
+            background-color: #005fa3;
+        }
+        .taskbar button:active {
+            background-color: #003e70;
+        }
+        .taskbar img {
+            width: 25px; /* Set icon size */
+            height: 25px; /* Set icon size */
+        }
+    </style>
+</head>
+<body>
+    <div class="desktop">
+        <div class="taskbar" id="taskbar"></div>
+    </div>
+    
+    <script>
+        let windowCount = 0;
+        const defaultIcon = "https://via.placeholder.com/30";
+        const defaultUrl = "https://example.com";
+        const defaultTitle = "Untitled App";
+
+        const apps = [
+            { title: "Aurorasoft Searcher", type: "iframe", url: "https://aurorasoft.pages.dev/customsearch/", icon: "https://www.google.com/favicon.ico" },
+            { title: "AuroraBrowser", type: "iframe", url: "https://example.com", icon: "https://via.placeholder.com/30" },
+            { title: "Andorra Text Editor", type: "iframe", url: "https://rubisco.pages.dev/andorra/", icon: "https://via.placeholder.com/30" },
+            { title: "AS-WOS Embedded", type: "iframe", url: "https://as-wos.pages.dev/", icon: "https://via.placeholder.com/30" },
+            { title: "MathSolver", type: "iframe", url: "https://exambook.pages.dev/tools/subjects/math/mathsolver/", icon: "https://via.placeholder.com/30" },
+            { title: "SysInfo", type: "iframe", url: "https://rubisco.pages.dev/sysinfo/", icon: "https://via.placeholder.com/30" },
+            { title: "WebScript", type: "iframe", url: "https://webscript.pages.dev/", icon: "https://via.placeholder.com/30" },
+            { title: "", type: "iframe", url: "", icon: "" }, // An example app with missing data
+        ];
+
+        function initTaskbar() {
+            apps.forEach(app => {
+                // Use default values if any app property is missing
+                const title = app.title || defaultTitle;
+                const url = app.url || defaultUrl;
+                const icon = app.icon || defaultIcon;
+
+                $("#taskbar").append(`
+                    <button onclick="openWindow('${app.type}', '${title}', '${url}')"
+                        title="${title}">
+                        <img src="${icon}" alt="${title}">
+                    </button>
+                `);
+            });
+
+            // Adjust taskbar layout if there are too many icons
+            if ($("#taskbar button").length > 10) { // If there are more than 10 apps
+                $("#taskbar").css("height", "60px"); // Increase taskbar height
+            }
+        }
+
+        function openWindow(type, title, url = "") {
+            windowCount++;
+            let windowId = 'window-' + windowCount;
+            let content = type === 'text' 
+                ? '<textarea></textarea>' 
+                : `<iframe src="${url}"></iframe>`;
+            
+            let newWindow = $(`
+                <div id="${windowId}" class="window">
+                    <div class="window-header">${title} <button onclick="$('#${windowId}').remove()">X</button></div>
+                    <div class="window-content">${content}</div>
+                </div>
+            `);
+
+            // Add window to the desktop
+            $('.desktop').append(newWindow);
+            newWindow.addClass('show');  // Apply the fade-in effect
+
+            // Make the window draggable and resizable
+            newWindow.draggable({ 
+                handle: ".window-header",
+                containment: "parent" 
+            }).resizable({ minHeight: 300, minWidth: 400 });
+        }
+
+        $(document).ready(function() {
+            initTaskbar();
+        });
+    </script>
+</body>
+</html>
