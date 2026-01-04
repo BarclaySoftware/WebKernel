@@ -1,35 +1,42 @@
-@font-face {
-    font-family: 'barclaySans';
-    src: url(./fonts/SevoltUI-Regular.ttf);
-    font-weight: 400;
-    font-style: normal;
+/* Copyright (c) 2024-2025 Aurorasoft. All Rights Reserved. */
+
+:root {
+    --kernel-ui-font: 'Kilroy';
 }
+
+/* This is the DEFAULT font included in WebKernel. Obviously for final versions or copied verisons, you should change it... */
 @font-face {
-    font-family: 'barclaySans';
-    src: url(./fonts/SevoltUI-Bold.ttf);
-    font-weight: 700;
-    font-style: normal;
+    font-family: 'Kilroy';
+    src: url(./fonts/KilroyUI.ttf);
 }
 body {
-    font-family: 'barclaySans', sans-serif;
-    background: url('./images/plaster.png') no-repeat center center fixed;
+    font-family: var(--kernel-ui-font);
+
+    /* An image can be used instead of the default solid color... */
+    background: url('./images/denver.jpg') no-repeat center center fixed;
+    /* background-color: #008080; */
+
     background-size: cover;
     margin: 0;
     overflow: hidden;
 }
+
+/* this ensures that the desktop is formatted to fit the user's screen */
 .desktop {
-    font-family: 'barclaySans', sans-serif;
+    font-family: var(--kernel-ui-font);
     width: 100vw;
     height: 100vh;
     position: relative;
 }
+
+/* the window style */
 .window {
-    font-family: 'barclaySans', sans-serif;
+    font-family: var(--kernel-ui-font);
     width: 500px;
     height: 400px;
     position: absolute;
-    background: #fff;
-    border-radius: 12px;
+    background: #F5F5F5;
+    border-radius: 10px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     display: flex;
@@ -40,9 +47,18 @@ body {
 .window.show {
     opacity: 1;
 }
+
+/* Differentiates inactive from active windows,,, makes it wayy easier to see what's goin on */
+.window.active {
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    /* background: #F5F5F5; */
+}
+
+/* aka titlebar */
 .window-header {
-    font-family: 'barclaySans', sans-serif;
-    background: #0078D7;
+    font-family: var(--kernel-ui-font);
+    /* background: linear-gradient(90deg, #000080, #0000cd); */
+    background: #1976D2;
     color: white;
     padding: 10px;
     cursor: move;
@@ -50,21 +66,23 @@ body {
     justify-content: space-between;
     align-items: center;
     font-weight: bold;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
 }
+
+/* Close Button */
 .window-header button {
-    font-family: 'barclaySans', sans-serif;
-    background: red;
+    font-family: var(--kernel-ui-font);
+    background: rgba(255, 0, 0, 0);
     border: none;
     color: white;
     padding: 6px 10px;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 0px;
     font-size: 14px;
 }
 .window-header button:hover {
-    background: darkred;
+    background: #E53935;
 }
 .window-content {
     flex: 1;
@@ -73,31 +91,39 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+/* for system-apps */
 textarea {
-    font-family: 'barclaySans', sans-serif;
+    font-family: var(--kernel-ui-font);
     width: 100%;
     height: 100%;
     border: 1px solid #ddd;
     resize: none;
     padding: 12px;
     font-size: 16px;
-    border-radius: 6px;
+    border-radius: 0px;
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 iframe {
     width: 100%;
     height: 100%;
     border: none;
-    border-radius: 6px;
+    border-radius: 0px;
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
+/* uses the sevolt api */
 .taskbar {
-    font-family: 'barclaySans', sans-serif;
+    font-family: var(--kernel-ui-font);
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 50px;
-    background: rgba(0, 0, 0, 0.8);
+
+    /* potentially have cool themes */
+    background: rgba(33, 33, 33, 0.5);
+    /* background-color: #212121; */
+    
     display: flex;
     align-items: center;
     padding: 0 10px;
@@ -107,22 +133,22 @@ iframe {
     white-space: nowrap; /* Prevents wrapping of icons */
 }
 .taskbar button {
-    font-family: 'barclaySans', sans-serif;
+    font-family: var(--kernel-ui-font);
     background: #0076d700;
     color: white;
     border: none;
     padding: 5px;
     margin-right: 10px;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 0px;
     font-size: 14px;
     transition: background-color 0.3s;
 }
 .taskbar button:hover {
-    background-color: #005fa3;
+    background-color: #424242;
 }
 .taskbar button:active {
-    background-color: #003e70;
+    background-color: #424242;
 }
 .taskbar img {
     width: 25px; /* Set icon size */

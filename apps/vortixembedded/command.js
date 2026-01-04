@@ -1,5 +1,5 @@
 const commands = [
-    'help', 'echo', 'date', 'time', 'uuid', 'academic', 'coord', 'define', 'forecast', 'iplookup', 'myip', 'search', 'solve',
+    'help', 'joke', 'echo', 'clear', 'date', 'time', 'uuid', 'coord', 'define', 'forecast', 'iplookup', 'myip', 'search', 'solve', 'academicsearch', 'update', 'name',
     // '', 
 ]
 
@@ -39,7 +39,10 @@ $(function() {
         var args = cmd.slice(1);
         
         if (action === 'help') {
-            this.echo("Available commands: help, clear, echo [text], date, time, uuid, joke, academic [query] [limit], coord [latitude] [longitude], define [word], forecast [city] [state] [country], iplookup [IP address], myip, search [query] [limit], solve [inequality], update\n");
+            this.echo("help, joke, echo [text], clear, date, time, uuid, coord [lat] [long], define [word], forecast [city] [province/state] [country], iplookup [IP address], myip, search [term] [limit], solve [equation], academicsearch [term] [limit], update, name" + "\n");
+        }
+        else if (action === 'debughelp') {
+            this.echo(commands.join("\n") + "\n");
         }
         else if (action === 'joke') {
             let data = await fetchJSON('https://official-joke-api.appspot.com/jokes/random');
@@ -142,7 +145,7 @@ $(function() {
                 }
             }
         }
-        else if (action === 'academic') {
+        else if (action === 'academicsearch') {
             if (args.length < 2) {
                 this.echo("About: Searches the arXiv database.\nUsage: academic <query> <no_of_terms>\n");
             } else {
@@ -180,7 +183,7 @@ $(function() {
             window.location.reload();
         }
         else if (action === 'name') {
-            window.location.reload();
+            this.echo(`vortix\n`);
         }
         else {
             this.echo("Command not found: " + command + "\n");
